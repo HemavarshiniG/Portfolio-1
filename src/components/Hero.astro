@@ -1,27 +1,110 @@
 ---
 import type { HeroProps } from "@types";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
 type Props = HeroProps;
 
 const { name, specialty, summary, email } = Astro.props;
 ---
 
-<section class="py-24 md:py-32" id="#hero">
-  <h1
-    class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
-  >
-    {name}
-  </h1>
-  <p
-    class="mb-9 font-serif text-4xl leading-11.5 font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
-  >
-    {specialty}
-  </p>
-  <p class="mb-16 text-base font-normal text-neutral md:text-lg">
-    {summary}
-  </p>
+<section
+  id="hero"
+  class="mx-auto flex max-w-6xl flex-col-reverse items-center justify-between gap-14 py-20 md:flex-row md:py-28"
+>
+  <!-- Left Side -->
+  <div class="max-w-2xl">
 
-  <a
-    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
-    href={`mailto:${email}`}>Get in Touch</a
-  >
+    <p class="mb-3 text-lg font-medium text-primary">
+      👋 Hello, I'm
+    </p>
+
+    <h1
+      class="mb-4 whitespace-nowrap font-serif text-5xl font-bold tracking-tight text-white md:text-7xl"
+    >
+      {name}
+    </h1>
+
+    <h2
+      class="mb-6 text-3xl font-bold text-primary md:text-5xl"
+    >
+      {specialty}
+    </h2>
+
+    <p
+      class="mb-5 max-w-xl text-lg leading-8 text-neutral"
+    >
+      {summary}
+    </p>
+
+    <!-- Location -->
+    <div class="mb-8 flex items-center gap-2 text-neutral">
+      <FaMapMarkerAlt className="text-primary" />
+      <span>Tamil Nadu, India</span>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mb-8 flex flex-wrap gap-4">
+
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        class="rounded-full bg-primary px-7 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+      >
+        📄 Download Resume
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/hemavarshini-g/"
+        target="_blank"
+        class="rounded-full border border-primary px-7 py-4 font-medium text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg"
+      >
+        💼 Contact Me
+      </a>
+
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex items-center gap-6 text-2xl">
+
+      <a
+        href="mailto:hemavarshinivarsh@gmail.com"
+        class="text-neutral transition hover:text-primary"
+        aria-label="Email"
+      >
+        <FaEnvelope />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/hemavarshini-g/"
+        target="_blank"
+        class="text-neutral transition hover:text-primary"
+        aria-label="LinkedIn"
+      >
+        <FaLinkedin />
+      </a>
+
+      <a
+        href="https://github.com/HemavarshiniG"
+        target="_blank"
+        class="text-neutral transition hover:text-primary"
+        aria-label="GitHub"
+      >
+        <FaGithub />
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Right Side -->
+  <div>
+
+    <img
+      src="/profile.png"
+      alt={name}
+      class="h-72 w-72 rounded-full border-4 border-primary object-cover shadow-2xl transition duration-300 hover:scale-105 md:h-80 md:w-80"
+    />
+
+  </div>
+
 </section>

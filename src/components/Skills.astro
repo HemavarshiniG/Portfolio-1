@@ -1,0 +1,134 @@
+---
+import {
+  FaJava,
+  FaPython,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaBootstrap,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
+
+import {
+  SiSpringboot,
+  SiMysql,
+  SiMongodb,
+  SiOpencv,
+} from "react-icons/si";
+
+const skillCategories = [
+  {
+    title: "Programming Languages",
+    skills: [
+      { name: "Java", icon: FaJava },
+      { name: "Python", icon: FaPython },
+      { name: "C", icon: null },
+      { name: "JavaScript", icon: FaJs },
+    ],
+  },
+  {
+    title: "Frontend",
+    skills: [
+      { name: "HTML", icon: FaHtml5 },
+      { name: "CSS", icon: FaCss3Alt },
+      { name: "Bootstrap", icon: FaBootstrap },
+    ],
+  },
+  {
+    title: "Backend",
+    skills: [
+      { name: "Spring Boot", icon: SiSpringboot },
+      { name: "REST API", icon: null },
+    ],
+  },
+  {
+    title: "Database",
+    skills: [
+      { name: "MySQL", icon: SiMysql },
+      { name: "MongoDB", icon: SiMongodb },
+    ],
+  },
+  {
+    title: "AI / ML",
+    skills: [
+      { name: "NLP", icon: null },
+      { name: "OpenCV", icon: SiOpencv },
+      { name: "RAG", icon: null },
+      { name: "Prompt Engineering", icon: null },
+    ],
+  },
+  {
+    title: "Tools",
+    skills: [
+      { name: "Git", icon: FaGitAlt },
+      { name: "GitHub", icon: FaGithub },
+      { name: "VS Code", icon: null },
+    ],
+  },
+];
+---
+
+<section id="skills" class="mx-auto mt-28 max-w-6xl px-6">
+
+  <div class="mb-14">
+
+    <h2 class="text-4xl font-bold text-white">
+      Skills
+    </h2>
+
+    <p class="mt-3 text-lg text-neutral">
+      Technologies and tools I use to build reliable, scalable and user-friendly applications.
+    </p>
+
+  </div>
+
+  <div class="space-y-10">
+
+    {
+      skillCategories.map((category) => (
+
+        <div>
+
+          <h3 class="mb-5 text-2xl font-semibold text-primary">
+            {category.title}
+          </h3>
+
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+            {
+              category.skills.map((skill) => (
+
+                <div
+                  class="group flex items-center gap-4 rounded-xl border border-neutral-700 bg-[#171c25] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg"
+                >
+
+                  <div class="text-3xl text-primary">
+
+                    {
+                      skill.icon
+                        ? <skill.icon />
+                        : <span class="font-bold text-xl">•</span>
+                    }
+
+                  </div>
+
+                  <span class="font-medium text-white">
+                    {skill.name}
+                  </span>
+
+                </div>
+
+              ))
+            }
+
+          </div>
+
+        </div>
+
+      ))
+    }
+
+  </div>
+
+</section>
